@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using GigHub.Core.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -25,6 +26,25 @@ namespace GigHub.Persistence
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Gig>()
+                .Property(g => g.ArtistId)
+                .IsRequired();
+
+            modelBuilder.Entity<Gig>()
+                .Property(g => g.Venue)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            modelBuilder.Entity<Gig>()
+                .Property(g => g.GenreId)
+                .IsRequired();
+
+            modelBuilder.Entity<ApplicationUser>()
+                .Property(u => u.Name)
+                .IsRequired()
+                .HasMaxLength(100);
+                
+
             modelBuilder.Entity<Attendance>()
                 .HasRequired(a => a.Gig)
                 .WithMany(g => g.Attendances)
