@@ -31,6 +31,7 @@ namespace GigHub
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/content/fonts",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/animate.css"));
