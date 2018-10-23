@@ -1,8 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
-using GigHub.Core.Models;
+﻿using GigHub.Core.Models;
 using GigHub.Persistence.EntityConfiguaration;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace GigHub.Persistence
 {
@@ -37,13 +36,18 @@ namespace GigHub.Persistence
 
             base.OnModelCreating(modelBuilder);
 
-            //            modelBuilder.Entity<Gig>()
-            //                .Property(g => g.ArtistId)
-            //                .IsRequired();
+//            modelBuilder.Entity<Gig>()
+//                .Property(g => g.ArtistId)
+//                .IsRequired();
             //            modelBuilder.Entity<Attendance>()
             //                .HasRequired(a => a.Gig)
             //                .WithMany(g => g.Attendances)
             //                .WillCascadeOnDelete(false);
+
+//            modelBuilder.Entity<Attendance>()
+//                .HasRequired(a => a.Gig)
+//                .WithMany()
+//                .WillCascadeOnDelete(false);
         }
     }
 }

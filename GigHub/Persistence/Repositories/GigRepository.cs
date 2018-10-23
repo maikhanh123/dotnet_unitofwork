@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading;
 using GigHub.Core.Models;
 using GigHub.Core.Repositories;
 
@@ -37,6 +38,7 @@ namespace GigHub.Persistence.Repositories
 
         public IEnumerable<Gig> GetGigsUserAttending(string userId)
         {
+            
             return _context.Attendances
                 .Where(a => a.AttendeeId == userId)
                 .Select(a => a.Gig)
@@ -60,6 +62,13 @@ namespace GigHub.Persistence.Repositories
         public void Add(Gig gig)
         {
             _context.Gigs.Add(gig);
+        }
+
+        public string GetGig()
+        {
+            var abc = _context.Gigs.Select(g => new {Name = g.Venue}).ToList();
+
+            return abc[0].Name;
         }
     }
 }
