@@ -1,10 +1,10 @@
-﻿using System;
+﻿using GigHub.Controllers;
+using GigHub.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using System.Web.Mvc;
-using GigHub.Controllers;
-using GigHub.Core.Models;
 
 namespace GigHub.Core.ViewModels
 {
@@ -42,6 +42,8 @@ namespace GigHub.Core.ViewModels
 
                 var action = (Id != 0) ? update : create;
                 return (action.Body as MethodCallExpression).Method.Name;
+
+                //return (ID != 0) ? "update" : "create"
             }
         }
 
