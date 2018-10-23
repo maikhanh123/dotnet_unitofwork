@@ -24,7 +24,7 @@ namespace GigHub.Controllers.Api
             var userId = User.Identity.GetUserId();
             var gig = _unitOfWork.Gigs.GetGigWithAttendings(id);
             
-            //TODO: Bug - if gig == null
+//            TODO: Bug - if gig == null
             if (gig == null)
                 return NotFound();
 
